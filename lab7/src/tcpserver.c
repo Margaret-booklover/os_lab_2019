@@ -7,10 +7,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define SERV_PORT 10050
-#define BUFSIZE 100
-#define SADDR struct sockaddr
-
 int main() {
   const size_t kSize = sizeof(struct sockaddr_in);
 

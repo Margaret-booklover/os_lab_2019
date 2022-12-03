@@ -1,0 +1,15 @@
+CC=gcc
+tcp : tc ts
+udp : uc us
+
+tc :
+	$(CC) -o tc tcpclient.c -D BUFSIZE=100 -D SADDR='struct sockaddr' -D SIZE='sizeof(struct sockaddr_in)'
+
+ts :
+	$(CC) -o ts tcpserver.c -D SERV_PORT=10050 -D BUFSIZE=100 -D SADDR='struct sockaddr'
+ 
+uc :
+	$(CC) -o uc udpclient.c -D SERV_PORT=20001 -D BUFSIZE=1024 -D SADDR='struct sockaddr' -D SLEN='sizeof(struct sockaddr_in)'
+
+us:
+	$(CC) -o us udpserver.c -D SERV_PORT=20001 -D BUFSIZE=1024 -D SADDR='struct sockaddr' -D SLEN='sizeof(struct sockaddr_in)
